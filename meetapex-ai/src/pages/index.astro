@@ -1,17 +1,25 @@
 ---
-
+import App from '../components/App';
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/apex-ai-logo-black.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Apex AI — The AI Agency for Australian Businesses</title>
+    <meta name="description" content="Expert AI builders embedded inside your business. Automation, copilots, agents, and custom AI applications — built and deployed fast." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link rel="stylesheet" href="/colors_and_type.css" />
+    <link rel="stylesheet" href="/kit.css" />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <App client:load />
+  </body>
 </html>

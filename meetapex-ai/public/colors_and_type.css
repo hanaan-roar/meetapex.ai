@@ -1,0 +1,208 @@
+/* ============================================================
+   ApexAI Design System — Foundations (meetapex.ai homepage)
+   Colors + Typography tokens — verbatim from the ApexAI system.
+   Trimmed @font-face to the active Geist + Geist Mono pairing.
+   ============================================================ */
+
+/* Geist — variable, display / headings / body (neo-grotesque) */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* Geist Mono — variable, pills / eyebrows / labels / code */
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ===== BRAND PRIMARY — mint / spring green (CANONICAL: #50FFB2) ===== */
+  --apex-mint:          #50FFB2;
+  --apex-mint-bright:   #7BFFC8;
+  --apex-mint-deep:     #3AE897;
+  --apex-mint-dim:      #1F6B5E;
+  --mint-soft:          #9DCBAE;
+
+  /* ===== Ink — green-tinted charcoals (dark surfaces) ===== */
+  --ink-900:  #080B0A;
+  --ink-850:  #0B0F0D;
+  --ink-800:  #111714;
+  --ink-750:  #161E1A;
+  --ink-700:  #1C2723;
+  --ink-600:  #26332D;
+  --ink-500:  #33433B;
+  --ink-400:  #45574E;
+
+  /* ===== Light neutrals ===== */
+  --paper:    #FFFFFF;
+  --paper-2:  #F3F6F4;
+  --paper-3:  #E7ECE9;
+  --white:    #FFFFFF;
+  --fog-100:  #F4F7F5;
+  --fog-300:  #C3CEC9;
+  --fog-500:  #93A19A;
+  --fog-700:  #647069;
+
+  /* ===== Semantic accents ===== */
+  --success:  #50FFB2;
+  --success-dim: #2E5C40;
+  --warning:  #FFC56B;
+  --warning-dim: #5C4523;
+  --danger:   #FF7A6B;
+  --danger-dim: #5C2823;
+  --info:     #6BC2FF;
+  --info-dim: #1E3F5C;
+
+  /* ===== Anchor greens ===== */
+  --pine:            #10453F;
+  --pine-deep:       #0A2E2A;
+
+  /* ===== CTA / stat accent — yellow-green. CTA buttons + stat highlights ONLY. ===== */
+  --accent-action:   #c8e63a;
+
+  /* ===== Pastel backgrounds ===== */
+  --paper-warm:   #F6F4EE;
+  --pastel-sand:  #F1ECE1;
+  --pastel-mint:  #E6F8EE;
+  --pastel-peri:  #ECEDFB;
+
+  /* ===== Warm-light ink ===== */
+  --ink-warm:    #1B1C18;
+  --ink-warm-2:  #4A4C44;
+  --ink-warm-3:  #8A8578;
+  --green-text:  #1F7A48;
+  --headline-2:  #1B3B33;
+  --headline-muted: #93A39B;
+
+  /* ===== Fresh green surfaces ===== */
+  --mist:        #E6EAEB;
+  --sage:        #B3D0CE;
+  --sage-deep:   #9FC1BE;
+  --forest:      #00413D;
+  --lime:        #DCFF03;
+
+  /* ===== SEMANTIC (warm-light default) ===== */
+  --bg-base:        var(--paper-warm);
+  --bg-deep:        var(--pastel-sand);
+  --bg-surface:     #FFFFFF;
+  --bg-raised:      #FFFFFF;
+  --bg-card:        #FFFFFF;
+  --fg:             var(--ink-warm);
+  --fg-muted:       var(--ink-warm-2);
+  --fg-subtle:      var(--ink-warm-3);
+  --fg-faint:       #B0AC9F;
+  --border:         rgba(27,28,24,0.12);
+  --border-soft:    rgba(27,28,24,0.07);
+  --border-strong:  rgba(27,28,24,0.22);
+  --primary:        var(--apex-mint);
+  --primary-hover:  var(--apex-mint-bright);
+  --primary-press:  var(--apex-mint-deep);
+  --on-primary:     var(--pine);
+  --accent-text:    var(--green-text);
+  --ring:           color-mix(in oklab, var(--apex-mint) 55%, transparent);
+  --selection:      color-mix(in oklab, var(--apex-mint) 28%, transparent);
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-display:   "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:      "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans:      var(--font-body);
+  --font-mono:      "Geist Mono", "SFMono-Regular", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --font-serif:     "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fw-thin: 100; --fw-extralight: 200; --fw-light: 300; --fw-regular: 400;
+  --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700; --fw-extrabold: 800;
+
+  --text-display: 4.5rem;
+  --text-h1:      3.25rem;
+  --text-h2:      2.5rem;
+  --text-h3:      1.875rem;
+  --text-h4:      1.375rem;
+  --text-h5:      1.125rem;
+  --text-body-lg: 1.1875rem;
+  --text-body:    1rem;
+  --text-sm:      0.875rem;
+  --text-xs:      0.75rem;
+  --text-overline:0.6875rem;
+
+  --lh-tight: 1.05; --lh-snug: 1.18; --lh-normal: 1.5; --lh-relaxed: 1.65;
+  --ls-tighter: -0.03em; --ls-tight: -0.015em; --ls-normal: 0em; --ls-wide: 0.04em; --ls-overline: 0.18em;
+
+  /* ===== SPACING — 4pt ===== */
+  --space-0: 0; --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4rem; --space-9: 6rem; --space-10: 8rem;
+
+  /* ===== RADII ===== */
+  --radius-xs: 0.25rem; --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-pill: 999px;
+
+  /* ===== ELEVATION ===== */
+  --shadow-sm: 0 1px 2px rgba(27,28,24,0.05), 0 1px 1px rgba(27,28,24,0.04);
+  --shadow-md: 0 2px 4px rgba(27,28,24,0.05), 0 10px 24px -10px rgba(27,28,24,0.16);
+  --shadow-lg: 0 4px 8px rgba(27,28,24,0.06), 0 24px 50px -18px rgba(27,28,24,0.22);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--apex-mint) 45%, transparent),
+                 0 10px 32px -10px color-mix(in oklab, var(--apex-mint) 40%, transparent);
+  --inset-hairline: inset 0 1px 0 rgba(255,255,255,0.6);
+  --shadow-sm-dark: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md-dark: 0 6px 20px rgba(0,0,0,0.45);
+  --shadow-lg-dark: 0 18px 48px rgba(0,0,0,0.55);
+
+  /* ===== MOTION ===== */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms; --dur: 200ms; --dur-slow: 360ms;
+}
+
+/* ===== DARK SECTION CONTEXT ===== */
+[data-theme="dark"], .section-dark {
+  --bg-base:    var(--forest);
+  --bg-deep:    var(--pine-deep);
+  --bg-surface: var(--ink-800);
+  --bg-raised:  var(--ink-750);
+  --bg-card:    var(--ink-700);
+  --fg:        var(--fog-100);
+  --fg-muted:  var(--fog-300);
+  --fg-subtle: var(--fog-500);
+  --fg-faint:  var(--fog-700);
+  --border:        var(--ink-500);
+  --border-soft:   var(--ink-600);
+  --border-strong: var(--ink-400);
+  --on-primary:  var(--pine);
+  --accent-text: var(--apex-mint);
+  --shadow-sm: var(--shadow-sm-dark);
+  --shadow-md: var(--shadow-md-dark);
+  --shadow-lg: var(--shadow-lg-dark);
+  background: var(--bg-base);
+  color: var(--fg);
+}
+
+::selection { background: var(--selection); }
+
+/* ===== TEXT HIGHLIGHT — .hl-select
+   Pure radial-gradient text. No borders, no box, no pseudo-elements.
+   Light: deep pine → mid-green → pastel tint
+   Dark:  white → lime-yellow → muted green
+   Use on HEADLINE / TITLE words ONLY. One per headline max.
+   ===== */
+.hl-select {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: radial-gradient(274.6% 364.78% at 16.86% -123.3%, #10453F 28.9%, #66CC9A 65.76%, #E3F9E2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* Dark surface variant — auto-applies inside .section-dark or [data-theme="dark"] */
+[data-theme="dark"] .hl-select,
+.section-dark .hl-select {
+  background: radial-gradient(274.6% 364.78% at 16.86% -123.3%, #FFF 44.43%, #DDFF8C 61.33%, #7DB17A 79.25%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
