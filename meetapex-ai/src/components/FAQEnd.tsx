@@ -22,7 +22,7 @@ export function FAQ() {
     <section className="sec" id="faq">
       <div className="wrap">
         <div className="faq-head rv">
-          <span className="eyebrow-dark" style={{ justifyContent: 'center', width: '100%' }}>
+          <span className="eyebrow-center">
             <Spark size={14} color="#10453F" />FAQ
           </span>
           <h2 className="h2" style={{ marginTop: '1rem' }}>Frequently asked questions</h2>
@@ -60,7 +60,7 @@ export function EndZone({ onBook }: { onBook: () => void }) {
       <div className="glow" />
       <section className="fcta" style={{ padding: '112px 0px 120px' }}>
         <div className="wrap" style={{ width: '100%' }}>
-          <span className="eyebrow-light rv" style={{ justifyContent: 'center', width: '100%' }}>
+          <span className="eyebrow-center light rv">
             <Spark size={14} color="#ffffff" />Get started
           </span>
           <h2 className="h2 rv" data-d="1" style={{ margin: '16px auto 0', textAlign: 'center' }}>

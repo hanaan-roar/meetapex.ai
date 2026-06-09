@@ -39,7 +39,7 @@ export default function Calculator({ onBook }: { onBook: () => void }) {
     <section className="calc" id="calculator" style={{ padding: '103px 0px 104px', borderWidth: '0px 0px 1px', borderStyle: 'solid', borderColor: 'rgba(27, 28, 24, 0.1)' }}>
       <div className="wrap">
         <div className="sec-head center rv">
-          <span className="eyebrow-dark" style={{ justifyContent: 'center', width: '100%' }}>
+          <span className="eyebrow-center">
             <Spark size={14} color="#10453F" />Savings calculator
           </span>
           <h2 className="h2">See how much your business could <span className="hl-select">save</span> with AI</h2>
@@ -65,7 +65,7 @@ export default function Calculator({ onBook }: { onBook: () => void }) {
               </div>
             </div>
             <div className="cta-row">
-              <button className="btn btn-mint" style={{ width: '100%', justifyContent: 'center' }} onClick={onBook}>
+              <button className="ax-btn ax-btn-mint ax-btn-md" style={{ width: '100%', justifyContent: 'center' }} onClick={onBook}>
                 Book a call
                 <span className="arr"><Icon name="arrowRight" size={17} stroke={1.9} /></span>
               </button>

@@ -65,28 +65,28 @@ export function Services() {
 
 export function Testimonial() {
   return (
-    <section style={{ display: 'flex', justifyContent: 'center', fontFamily: "'Geist',sans-serif", color: 'rgb(27, 28, 24)', background: 'rgb(255, 255, 255)', padding: '0px 57px 80px' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'stretch', justifyContent: 'space-between', width: '1280px', maxWidth: '100%', padding: '0px 30px', gap: '16px' }}>
-        <div style={{ background: '#E3F9E2', borderRadius: '24px', padding: '48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
-            <span style={{ fontFamily: "'Geist',sans-serif", fontSize: '72px', lineHeight: 0.6, color: '#10453F', fontWeight: 500 }}>&ldquo;</span>
-            <p style={{ fontFamily: "'Geist',sans-serif", fontWeight: 400, fontSize: '32px', lineHeight: 1.55, letterSpacing: '-0.64px', color: '#111111', margin: 0, maxWidth: '620px' }}>
-              Apex AI helped us deploy a strong automation specialist across both internal operations and client work.
-            </p>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '56px' }}>
-            <p style={{ fontFamily: "'Geist',sans-serif", fontWeight: 300, fontSize: '16px', lineHeight: 1.65, color: '#111111', opacity: 0.85, margin: 0, maxWidth: '580px' }}>
-              They hit the ground running, deliver excellent client outcomes and consistently solve complex automation challenges. We have received great feedback across our client projects and learning programs. The entire process was seamless and highly responsive throughout.
-            </p>
-            <hr style={{ border: 'none', borderTop: '1px solid rgba(0,0,0,0.12)', margin: 0 }} />
+    <section style={{ background: 'rgb(255, 255, 255)', padding: '0px 57px 80px' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 30px' }}>
+        <div className="ax-testi">
+          <div className="ax-testi-left">
             <div>
-              <p style={{ fontFamily: "'Geist',sans-serif", fontWeight: 600, fontSize: '18px', color: '#111111', margin: '0 0 4px 0' }}>Dr Nici Sweaney</p>
-              <p style={{ fontFamily: "'Geist',sans-serif", fontWeight: 400, fontSize: '15px', margin: 0, color: 'rgb(95, 95, 95)' }}>Chief Executive Officer at Ai Her Way</p>
+              <div className="ax-testi-quote-mark">&ldquo;</div>
+              <p className="ax-testi-quote">
+                Apex AI helped us deploy a strong automation specialist across both internal operations and client work.
+              </p>
+            </div>
+            <div>
+              <p className="ax-testi-body">
+                They hit the ground running, deliver excellent client outcomes and consistently solve complex automation challenges. We have received great feedback across our client projects and learning programs. The entire process was seamless and highly responsive throughout.
+              </p>
+              <hr className="ax-testi-divider" />
+              <p className="ax-testi-attr-name">Dr Nici Sweaney</p>
+              <p className="ax-testi-attr-role">Chief Executive Officer at Ai Her Way</p>
             </div>
           </div>
-        </div>
-        <div style={{ width: '520px', minHeight: '600px', borderRadius: '24px', flexShrink: 0, overflow: 'hidden', background: '#1F6B5E' }}>
-          <img src="/assets/nici-sweaney.png" alt="Dr Nici Sweaney" style={{ objectPosition: 'center top', display: 'block', objectFit: 'cover', height: '660px', width: '521px', margin: '-5px 0px 0px' }} />
+          <div className="ax-testi-right">
+            <img src="/assets/nici-sweaney.png" alt="Dr Nici Sweaney" />
+          </div>
         </div>
       </div>
     </section>
@@ -119,18 +119,18 @@ export function WhyFounders() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-3)' }}>
-          {WHY_CARDS.map((c) => (
-            <div key={c.num} style={{ display: 'flex', padding: '2.25rem 1.5rem 2rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', flex: '1 0 0', alignSelf: 'stretch', borderRadius: '1rem', background: 'rgba(255, 255, 255, 0.90)', textAlign: 'left' }}>
-              <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: 'var(--space-5)' }}>
-                <img src={c.img} alt={c.title} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+        <div className="bento-grid">
+          <div className="bento-row">
+            {WHY_CARDS.map((c) => (
+              <div className="bento-card" key={c.num}>
+                <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: 'var(--space-5)' }}>
+                  <img src={c.img} alt={c.title} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+                </div>
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
               </div>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-h4)', fontWeight: 'var(--fw-semibold)', color: 'var(--ink-warm)', letterSpacing: 'var(--ls-tight)', lineHeight: 'var(--lh-snug)', margin: '0 0 var(--space-2)' }}>{c.title}</h3>
-                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--ink-warm-2)', lineHeight: 'var(--lh-relaxed)', margin: 0 }}>{c.desc}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -126,7 +126,7 @@ export default function Nav({ onBook }: { onBook: () => void }) {
             </svg>
             +61 41 087 6136
           </a>
-          <button className="nav-cta" onClick={onBook} style={{ backgroundColor: 'rgb(0,0,0)', color: 'rgb(255,255,255)' }}>
+          <button className="nav-cta" onClick={onBook}>
             Book a call
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />

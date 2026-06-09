@@ -17,18 +17,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
   usePlayfair();
 
   return (
-    <header className="hero" id="top" style={{
-      position: 'relative',
-      backgroundColor: 'transparent',
-      padding: '0',
-      minHeight: 'calc(100vh + 74px)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      overflow: 'clip',
-      marginTop: '-74px',
-    }}>
+    <header className="hero ax-hero" id="top" style={{ marginTop: '-74px', minHeight: 'calc(100vh + 74px)' }}>
       <img
         src="/assets/apex-hero_bg.jpg"
         alt=""
@@ -36,21 +25,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', zIndex: 0, pointerEvents: 'none' }}
       />
 
-      <div className="hero-top-container" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        paddingTop: 'calc(var(--nav-h, 72px) + 40px)',
-        paddingBottom: '40px',
-        paddingLeft: 'clamp(24px, 5vw, 80px)',
-        paddingRight: 'clamp(24px, 5vw, 80px)',
-        width: '100%',
-        justifyContent: 'center',
-        flex: 1,
-        textAlign: 'center',
-        position: 'relative',
-        zIndex: 1,
-      }}>
+      <div className="hero-top-container ax-hero-inner">
         <div className="hero-rating" style={{ margin: '0px 0px 24px' }}>
           <Stars size={15} color="#FFD580" />
           <span className="rtxt" style={{ fontSize: 'clamp(12px, 0.9vw, 14px)', color: 'rgb(95, 95, 95)' }}>
@@ -97,15 +72,15 @@ export function Trust() {
   return (
     <section className="trust" style={{ backgroundColor: 'rgb(255, 255, 255)', borderStyle: 'solid', borderWidth: '0px 0px 1px', borderColor: 'rgba(27, 28, 24, 0.1)', padding: '70px 0px 60px' }}>
       <div className="wrap">
-        <p className="lead rv" style={{ margin: '0px 0px 10px', color: 'rgb(44, 44, 44)', fontSize: '14px' }}>Trusted by fast-growing Australian businesses</p>
+        <p className="ax-trust-lead rv">Trusted by fast-growing Australian businesses</p>
       </div>
       <div className="marquee-track" style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}>
         <div className="marquee-inner">
           {[0, 1].map((copy) => (
-            <div className="marquee-set" key={copy} aria-hidden={copy === 1} style={{ gap: '40px', padding: '0px 20px' }}>
+            <div className="ax-marquee-set" key={copy} aria-hidden={copy === 1}>
               {logos.map((l) => (
-                <div className="trust-tile" key={l.alt + copy} style={{ width: '185px', height: '105px' }}>
-                  <img src={l.src} alt={l.alt} style={{ height: '50px' }} />
+                <div className="ax-trust-tile" key={l.alt + copy}>
+                  <img src={l.src} alt={l.alt} />
                 </div>
               ))}
             </div>

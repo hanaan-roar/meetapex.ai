@@ -85,7 +85,7 @@ export default function Pricing({ onBook }: { onBook: () => void }) {
       />
       <div className="wrap">
         <div className="sec-head center rv">
-          <span className="eyebrow-dark" style={{ justifyContent: 'center', width: '100%' }}>
+          <span className="eyebrow-center">
             <Spark size={14} color="#10453F" />Pricing
           </span>
           <h2 className="h2">Simple plans for <span style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontWeight: 400, color: 'inherit' }}>every stage</span></h2>
@@ -111,7 +111,8 @@ export default function Pricing({ onBook }: { onBook: () => void }) {
                 <div className="bt">{p.best}</div>
               </div>
               <button
-                className={p.feat ? 'plan-cta-solid' : 'plan-cta-outline'}
+                className={p.feat ? 'ax-btn ax-btn-primary ax-btn-md' : 'ax-btn ax-btn-secondary ax-btn-md'}
+                style={{ width: '100%', marginTop: '1.5rem', justifyContent: 'center' }}
                 onClick={onBook}
               >
                 {p.cta}
