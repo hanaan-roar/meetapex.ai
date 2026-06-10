@@ -10,8 +10,8 @@ const STEPS = [
 
 export default function Deploy({ onBook }: { onBook: () => void }) {
   return (
-    <section className="sec deploy" id="deploy">
-      <div className="wrap">
+    <section className="sec deploy ax-section" id="deploy">
+      <div className="ax-container">
         <div className="deploy-head rv">
           <div className="sec-head" style={{ marginBottom: 0 }}>
             <span className="eyebrow-dark"><Spark size={14} color="#10453F" />How we work</span>

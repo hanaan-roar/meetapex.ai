@@ -19,8 +19,8 @@ export function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="sec" id="faq">
-      <div className="wrap">
+    <section className="sec ax-section" id="faq">
+      <div className="ax-container">
         <div className="faq-head rv">
           <span className="eyebrow-center">
             <Spark size={14} color="#10453F" />FAQ
@@ -58,14 +58,10 @@ export function EndZone({ onBook }: { onBook: () => void }) {
   return (
     <div className="endzone section-dark">
       <div className="glow" />
-      <section className="fcta" style={{ padding: '112px 0px 120px' }}>
-        <div className="wrap" style={{ width: '100%' }}>
-          <span className="eyebrow-center light rv">
-            <Spark size={14} color="#ffffff" />Get started
-          </span>
-          <h2 className="h2 rv" data-d="1" style={{ margin: '16px auto 0', textAlign: 'center' }}>
-            Your competitors are already<br />moving on AI
-          </h2>
+      <section className="fcta ax-section">
+        <div className="wrap" style={{ width: '100%', padding: '0px 30px' }}>
+          <span className="eyebrow-center light rv"><Spark size={14} color="#ffffff" />Get started</span>
+          <h2 className="h2 rv" data-d="1" style={{ margin: '16px auto 0', textAlign: 'center' }}>Your competitors are already<br />moving on AI</h2>
           <p className="lede rv" data-d="2" style={{ width: '100%' }}>
             Find out exactly where AI can transform your business, with experts starting from A$60 per hour.
           </p>
@@ -78,8 +74,8 @@ export function EndZone({ onBook }: { onBook: () => void }) {
         </div>
       </section>
       <footer className="footer" id="footer">
-        <div className="wrap">
-          <div className="foot-top">
+        <div className="wrap" style={{ padding: '0px' }}>
+          <div className="foot-top" style={{ margin: '0px 30px 0px 0px', padding: '0px 30px 48px' }}>
             <div className="foot-brand">
               <img src="/assets/apex-ai-logo-white.png" alt="Apex AI" />
               <p className="fb">The AI agency for Australian businesses</p>
@@ -110,7 +106,7 @@ export function EndZone({ onBook }: { onBook: () => void }) {
                 <li><a href="https://www.meetapex.ai/about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#deploy">How we work</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#footer">Pricing</a></li>
                 <li><a href="https://www.meetapex.ai/resources">Resources</a></li>
               </ul>
             </div>
@@ -118,12 +114,12 @@ export function EndZone({ onBook }: { onBook: () => void }) {
               <h5>Contact</h5>
               <ul>
                 <li><a href="mailto:hello@meetapex.ai">hello@meetapex.ai</a></li>
-                <li><a href="tel:+61410876136">+(61) 41 087 6136</a></li>
+                <li><a href="tel:+(61)410180469">+(61) 41 087 6136</a></li>
                 <li><a href="https://maps.app.goo.gl/bKQScKrGCvQm9k4C8">302/13-15, Wentworth Avenue, Sydney NSW 2000</a></li>
               </ul>
             </div>
           </div>
-          <div className="foot-bottom">
+          <div className="foot-bottom" style={{ padding: '26px 30px' }}>
             <span>&copy; 2026 Apex AI. All Rights Reserved.</span>
             <a href="https://app.meetapex.ai/terms">Terms &amp; conditions</a>
           </div>

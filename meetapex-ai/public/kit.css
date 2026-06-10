@@ -30,7 +30,44 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .ax-frame { max-width: 80rem; margin: 0 auto; border-left: 1px solid var(--grid-line); border-right: 1px solid var(--grid-line); }
 :root { --grid-line: rgba(27,28,24,0.08); }
-.ax-container { max-width: 80rem; margin: 0 auto; padding: 0 3.75rem; }
+:root {
+  --section-pad-y: 6rem;
+  --section-pad-x: 0px;
+  --container-pad-x: 3%;
+  --container-max-w: 80rem;
+}
+
+/* Section — full width, vertical padding only */
+.ax-section {
+  width: 100%;
+  padding: var(--section-pad-y) var(--section-pad-x);
+  box-sizing: border-box;
+}
+
+/* Container — max-width, centered, horizontal padding */
+.ax-container {
+  max-width: var(--container-max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-pad-x);
+  box-sizing: border-box;
+}
+
+/* Container size variants */
+.ax-container--narrow { max-width: 65rem; }
+.ax-container--wide { max-width: 90rem; }
+.ax-container--flush { padding-left: 0; padding-right: 0; }
+
+/* Section vertical padding variants */
+.ax-section--sm { --section-pad-y: 4rem; }
+.ax-section--lg { --section-pad-y: 8rem; }
+.ax-section--flush { --section-pad-y: 0px; }
+
+/* Full-bleed exceptions — these sections manage their own internal padding */
+.ax-hero { --section-pad-y: 0px; }
+.ax-testi { --section-pad-y: 0px; }
+.ax-cta { padding: 6rem var(--section-pad-x); }
+.ax-footer { padding: 4.5rem var(--section-pad-x) 2.5rem; }
 .ax-divider { border: 0; border-top: 1px solid var(--grid-line); margin: 0; }
 .ax-rule-dotted { position: relative; height: 1px; background: var(--grid-line); margin: 0; }
 .ax-rule-dotted::before, .ax-rule-dotted::after { content: ""; position: absolute; top: -2.5px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-warm-3); }
@@ -87,7 +124,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Nav ---------- */
 .nav-wrap { position: sticky; top: 0; z-index: 50; background: transparent; border-bottom: 1px solid transparent; transition: background 320ms var(--ease-out), border-color 320ms var(--ease-out), backdrop-filter 320ms var(--ease-out); }
 .nav-wrap.scrolled { background: color-mix(in oklab, var(--paper-warm) 72%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--grid-line); }
-.nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0.65rem 1.5rem; position: relative; max-width: 80rem; margin: 0 auto; }
+.nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0.65rem var(--container-pad-x); position: relative; max-width: 80rem; margin: 0 auto; }
 .logo { height: 1.7rem; cursor: pointer; }
 .links { display: inline-flex; align-items: center; gap: 0.15rem; }
 .link-item { position: relative; }
@@ -147,7 +184,7 @@ a { color: inherit; text-decoration: none; }
 .ax-hero-trust .stat .l { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-warm-3); margin-top: 0.35rem; }
 
 /* ---------- Section scaffold ---------- */
-.ax-section { padding: 6rem 0; }
+/* ax-section defined above via CSS variables */
 .ax-section-head { max-width: 42rem; margin-bottom: 3.5rem; }
 .ax-section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
 .ax-section-head h2 { font-size: var(--text-h2); line-height: 1.12; margin: 1.1rem 0 0; }
@@ -223,7 +260,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Footer ---------- */
 .ax-footer { background: var(--forest); color: rgba(238,243,236,0.75); padding: 4.5rem 0 2.5rem; }
-.ax-footer .ax-container { padding-top: 0; }
+.ax-footer .ax-container { padding-top: 0; padding-left: var(--container-pad-x); padding-right: var(--container-pad-x); }
 .ax-footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 3.5rem; }
 .ax-footer img { height: 1.3rem; margin-bottom: 1.25rem; }
 .ax-footer .blurb { font-size: 0.9rem; color: rgba(238,243,236,0.5); line-height: 1.65; max-width: 18rem; }
@@ -303,11 +340,11 @@ a { color: inherit; text-decoration: none; }
 
 /* --- Tablet (max 64rem / ~1024px) --- */
 @media (max-width: 64rem) {
-  .ax-container { padding: 0 2.5rem; }
-  .ax-section { padding: 5rem 0; }
+  :root { --section-pad-y: 5rem; --container-pad-x: 3%; }
   .ax-hero h1 { font-size: 3.2rem; }
   .ax-hero { padding: 5.5rem 0 4.5rem; }
   .ax-section-head h2 { font-size: 2.4rem; }
+  .ax-section-head p { font-size: 1rem; }
   .ax-footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .ax-proof-grid { grid-template-columns: 1fr 1fr; }
   .ax-proof .cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -315,62 +352,138 @@ a { color: inherit; text-decoration: none; }
   .ax-case { gap: 2.5rem; }
   .bento-row { height: auto; }
   .bento-card { min-height: 420px; }
+  .bento-card h3 { font-size: 1.5rem; }
   .ax-contact-grid { gap: 3rem; }
   .drop { min-width: 26rem; }
-  .ax-testi { grid-template-columns: 1fr; }
-  .ax-testi-right { min-height: 360px; }
-  .ax-testi-left { padding: 3rem; }
+  /* Card system — tablet */
+  .ax-card--lg { padding: 2rem; border-radius: 16px; }
+  .ax-card--pricing .ax-card-price { font-size: 2.25rem; }
+  .ax-card--feature { min-height: 16rem; }
+  .ax-card--feature .ax-card-title { font-size: var(--text-h3); }
+  /* Services */
+  .ax-svc .title { font-size: 1.6rem; }
+  /* Proof */
+  .ax-proof .stat .n { font-size: 2.5rem; }
+  /* Section head */
+  .ax-section-head { margin-bottom: 2.5rem; }
+  /* Nav dropdown */
+  .drop { left: 0; transform: none; }
 }
 
 /* --- Mobile large (max 60rem / ~960px) --- */
 @media (max-width: 60rem) {
+  :root { --section-pad-y: 4rem; --container-pad-x: 4%; }
   .nav { grid-template-columns: 1fr auto; }
   .links, .cta-wrap { display: none; }
   .nav-burger { display: block; }
-  .ax-container { padding: 0 1.5rem; }
-  .ax-section { padding: 4rem 0; }
   .ax-process { grid-template-columns: 1fr; }
-  .ax-services { flex-wrap: wrap; }
-  .ax-svc { flex: 1 1 14rem; min-height: 16rem; border-left: none; border-top: 1px solid var(--grid-line); }
+  /* Services — single column on mobile */
+  .ax-services { flex-direction: column; flex-wrap: nowrap; }
+  .ax-svc { flex: 1 1 auto; width: 100%; min-height: 14rem; border-left: none; border-top: 1px solid var(--grid-line); }
   .ax-svc:first-child { border-top: none; }
-  .ax-svc.feature { margin: 0; }
+  .ax-svc.feature { margin: 0; padding: 2.5rem 1.5rem; }
+  .ax-svc .title { font-size: 1.5rem; }
+  /* Proof */
   .ax-proof-grid { grid-template-columns: 1fr 1fr; }
   .ax-proof .cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
   .ax-proof .cell:nth-child(odd) { border-left: none; }
+  .ax-proof .stat .n { font-size: 2.25rem; }
+  /* Case */
   .ax-case { grid-template-columns: 1fr; }
+  /* Footer */
   .ax-footer-top { grid-template-columns: 1fr 1fr; }
+  .ax-footer { padding: 3.5rem 0 2rem; }
+  /* Typography */
   .ax-hero h1 { font-size: 2.9rem; }
   .ax-section-head h2 { font-size: 2.2rem; }
+  .ax-section-head p { font-size: 0.95rem; }
+  .ax-section-head { margin-bottom: 2rem; }
+  /* Bento */
   .bento-row { flex-direction: column; height: auto; }
   .bento-card { min-height: 380px; }
+  .bento-card h3 { font-size: 1.4rem; }
+  /* Contact */
   .ax-contact-grid { grid-template-columns: 1fr; }
+  /* Security */
   .ax-sec-grid { grid-template-columns: 1fr; }
+  /* Testimonial */
+  .ax-testi { grid-template-columns: 1fr; }
+  .ax-testi-right { min-height: 300px; }
   .ax-testi-left { padding: 2.5rem; }
-  .ax-testi-quote { font-size: 1.5rem; }
-  .ax-trust-tile { width: 140px; height: 80px; }
+  .ax-testi-quote { font-size: 1.4rem; }
+  /* Card system */
+  .ax-card--lg { padding: 1.75rem; border-radius: 14px; }
+  .ax-card--pricing .ax-card-price { font-size: 2rem; }
+  .ax-card--metric .ax-card-stat { font-size: 2rem; }
+  /* CTA */
+  .ax-cta { padding: 4rem 0; }
+  .ax-cta h2 { font-size: 2.2rem; }
+  /* Eyebrow */
+  .eyebrow-dark, .eyebrow-light, .eyebrow-center { font-size: 0.8rem; }
 }
 
 /* --- Mobile small (max 40rem / ~640px) --- */
 @media (max-width: 40rem) {
-  .ax-container { padding: 0 1.25rem; }
-  .ax-section { padding: 3.5rem 0; }
-  .ax-proof-grid { grid-template-columns: 1fr; }
+  :root { --section-pad-y: 3.5rem; --container-pad-x: 6%; }
+  /* Typography */
   .ax-hero h1 { font-size: 2.4rem; }
   .ax-hero { padding: 4.5rem 0 3.5rem; }
   .ax-section-head h2 { font-size: 2rem; }
-  .ax-footer-top { grid-template-columns: 1fr; }
-  .ax-footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
-  .ax-cta h2 { font-size: 2rem; }
+  .ax-section-head p { font-size: 0.9rem; }
+  .ax-section-head { margin-bottom: 1.75rem; }
+  /* Hero actions */
   .ax-hero-actions { flex-direction: column; align-items: stretch; }
-  .ax-hero-actions .ax-btn { justify-content: center; }
-  .bento-card { min-height: 320px; padding: 24px 20px; }
-  .ax-proof .cell { padding: 2rem 1.5rem; }
+  .ax-hero-actions .ax-btn { justify-content: center; width: 100%; }
+  .ax-hero-sub { font-size: 1rem; }
+  /* Proof */
+  .ax-proof-grid { grid-template-columns: 1fr; }
+  .ax-proof .cell { padding: 2rem 1.5rem; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+  .ax-proof .cell:first-child { border-top: none; }
+  .ax-proof .stat .n { font-size: 2.5rem; }
+  /* Footer */
+  .ax-footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .ax-footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .ax-footer { padding: 3rem 0 1.5rem; }
+  /* CTA */
+  .ax-cta h2 { font-size: 2rem; }
+  .ax-cta p { font-size: 0.95rem; }
+  .ax-cta .acts { flex-direction: column; align-items: center; }
+  /* Bento */
+  .bento-card { min-height: 300px; padding: 1.5rem; }
+  .bento-card h3 { font-size: 1.25rem; }
+  .bento-card p { font-size: 0.9rem; }
+  /* Modal */
   .ax-modal-scrim { padding: 1rem; }
-  .ax-modal { padding: 1.75rem; }
+  .ax-modal { padding: 1.5rem; }
+  /* Cards */
+  .ax-card { padding: 1.5rem; border-radius: 14px; }
+  .ax-card--lg { padding: 1.75rem; border-radius: 14px; }
+  .ax-card--sm { padding: 1rem; border-radius: 10px; }
+  .ax-card--pricing .ax-card-price { font-size: 1.75rem; }
+  .ax-card--metric .ax-card-stat { font-size: 1.75rem; }
+  /* Testimonial */
   .ax-testi-left { padding: 2rem 1.5rem; }
-  .ax-testi-quote { font-size: 1.3rem; }
-  .eyebrow-center { font-size: 0.75rem; }
+  .ax-testi-quote { font-size: 1.2rem; }
+  .ax-testi-right { min-height: 260px; }
+  /* Trust strip */
+  .ax-trust-tile { width: 120px; height: 70px; }
+  /* Eyebrow */
+  .eyebrow-dark, .eyebrow-light, .eyebrow-center { font-size: 0.7rem; letter-spacing: 0.08em; }
+  /* Services */
+  .ax-svc .title { font-size: 1.4rem; }
+  .ax-svc { padding: 1.5rem; }
+  /* Buttons */
+  .ax-btn-lg { font-size: 1rem; height: 2.75rem; padding: 0 1.4rem; }
 }
+
+/* ---------- Section heading rhythm ---------- */
+.ax-section-head h2 { margin-top: 1rem; }
+
+/* ---------- Eyebrow center utility ---------- */
+.eyebrow-center { display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px;
+  font-family: var(--font-mono); font-size: 0.9375rem; font-weight: 400; letter-spacing: 0.02em;
+  text-transform: uppercase; color: #000000; }
+.eyebrow-center.light { color: #ffffff; }
 
 /* ---------- Testimonial ---------- */
 .ax-testi { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; border-radius: 16px; overflow: hidden; }
@@ -391,3 +504,362 @@ a { color: inherit; text-decoration: none; }
 .ax-marquee-set { display: flex; align-items: center; gap: 3rem; }
 .ax-trust-tile { display: flex; align-items: center; justify-content: center; width: 185px; height: 105px; flex-shrink: 0; }
 .ax-trust-tile img { max-height: 2rem; width: auto; object-fit: contain; opacity: 0.65; }
+
+/* ---------- Responsive additions for new classes ---------- */
+@media (max-width: 64rem) {
+  .ax-testi { grid-template-columns: 1fr; }
+  .ax-testi-right { min-height: 360px; }
+  .ax-testi-left { padding: 3rem; }
+}
+@media (max-width: 60rem) {
+  .ax-testi-left { padding: 2.5rem; }
+  .ax-testi-quote { font-size: 1.5rem; }
+  .ax-trust-tile { width: 140px; height: 80px; }
+}
+@media (max-width: 40rem) {
+  .ax-testi-left { padding: 2rem 1.5rem; }
+  .ax-testi-quote { font-size: 1.3rem; }
+  .eyebrow-center { font-size: 0.75rem; }
+}
+
+/* ============================================================
+   CARD SYSTEM — base + size + shadow + background modifiers
+   Usage: <div class="ax-card ax-card--lg ax-card--shadow ax-card--mint">
+   ============================================================ */
+
+/* Base card */
+.ax-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--grid-line);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease-out);
+}
+
+/* Size variants */
+.ax-card--sm {
+  padding: 1.2rem;
+  border-radius: 12px;
+}
+.ax-card--lg {
+  padding: 2.5rem;
+  border-radius: 20px;
+}
+
+/* Shadow variants */
+.ax-card--shadow {
+  box-shadow: 0 2px 8px rgba(27,28,24,0.06);
+  border-color: transparent;
+}
+.ax-card--shadow-md {
+  box-shadow: 0 4px 24px rgba(27,28,24,0.10);
+  border-color: transparent;
+}
+.ax-card--shadow-lg {
+  box-shadow: 0 8px 40px rgba(27,28,24,0.14);
+  border-color: transparent;
+}
+
+/* Background modifiers */
+.ax-card--cream { background: var(--paper-warm); }
+.ax-card--frosted {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.ax-card--dark {
+  background: var(--pine);
+  border-color: transparent;
+  color: #F4F1E8;
+}
+.ax-card--dark h2,
+.ax-card--dark h3,
+.ax-card--dark h4,
+.ax-card--dark p { color: inherit; }
+.ax-card--mint {
+  background: #E3F9E2;
+  border-color: rgba(80,255,178,0.2);
+}
+
+/* Card content helpers */
+.ax-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-warm-3);
+  margin-bottom: 0.75rem;
+}
+.ax-card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--headline-2);
+  margin: 0 0 0.5rem;
+}
+.ax-card-body {
+  font-size: var(--text-body);
+  color: var(--ink-warm-2);
+  line-height: 1.65;
+  margin: 0;
+}
+.ax-card-foot {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 60rem) {
+  .ax-card--lg { padding: 2rem; border-radius: 16px; }
+}
+@media (max-width: 40rem) {
+  .ax-card { padding: 1.5rem; }
+  .ax-card--lg { padding: 1.75rem; }
+  .ax-card--sm { padding: 1rem; }
+}
+
+/* ============================================================
+   CARD SYSTEM — base + size variants + modifiers
+   Usage: class="ax-card ax-card--lg ax-card--shadow ax-card--mint"
+   ============================================================ */
+
+/* Base card */
+.ax-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease-out);
+}
+
+/* --- Size variants --- */
+.ax-card--sm {
+  padding: 1.2rem;
+  border-radius: 12px;
+}
+.ax-card--lg {
+  padding: 2.5rem;
+  border-radius: 20px;
+}
+
+/* --- Shadow variants --- */
+.ax-card--shadow { box-shadow: 0 2px 8px rgba(27,28,24,0.06); }
+.ax-card--shadow-md { box-shadow: 0 4px 24px rgba(27,28,24,0.10); }
+.ax-card--shadow-lg { box-shadow: 0 8px 40px rgba(27,28,24,0.14); }
+
+/* --- Background modifiers --- */
+.ax-card--cream { background: var(--paper-warm); }
+.ax-card--frosted { background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.ax-card--dark { background: var(--pine); color: #F4F1E8; }
+.ax-card--dark h2, .ax-card--dark h3, .ax-card--dark h4, .ax-card--dark p { color: #F4F1E8; }
+.ax-card--mint { background: #E3F9E2; }
+.ax-card--mid-green { background: var(--mid-green); }
+
+/* --- Border modifier --- */
+.ax-card--bordered { border: 1px solid var(--grid-line); }
+
+/* --- Card content helpers --- */
+.ax-card-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-warm-3); margin-bottom: 0.75rem; }
+.ax-card-title { font-family: var(--font-display); font-size: var(--text-h3); font-weight: 500;
+  letter-spacing: -0.02em; line-height: 1.15; color: var(--headline-2); margin: 0 0 0.75rem; }
+.ax-card-body { font-size: var(--text-body-lg); color: var(--ink-warm-2); line-height: 1.65; margin: 0; }
+.ax-card-foot { margin-top: auto; padding-top: 1.5rem; }
+
+/* --- Type-specific card patterns --- */
+
+/* Feature card */
+.ax-card--feature { min-height: 20rem; }
+.ax-card--feature .ax-card-title { font-size: var(--text-h2); }
+
+/* Metric / stat card */
+.ax-card--metric { align-items: flex-start; }
+.ax-card--metric .ax-card-stat { font-family: var(--font-display); font-size: 3rem;
+  font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--headline-2); margin: 0.5rem 0; }
+.ax-card--metric .ax-card-stat .unit { font-size: 1.5rem; color: var(--ink-warm-3); }
+
+/* Pricing card */
+.ax-card--pricing { justify-content: space-between; }
+.ax-card--pricing .ax-card-price { font-family: var(--font-display); font-size: 2.5rem;
+  font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--headline-2); margin: 1rem 0 0.25rem; }
+.ax-card--pricing .ax-card-price .period { font-size: 1rem; font-weight: 400; color: var(--ink-warm-3); }
+.ax-card--pricing ul { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.ax-card--pricing ul li { font-size: 0.9rem; color: var(--ink-warm-2); display: flex; align-items: flex-start; gap: 0.5rem; }
+.ax-card--pricing ul li::before { content: "✓"; color: var(--apex-mint-deep); font-weight: 600; flex-shrink: 0; }
+.ax-card--pricing.featured { border: 2px solid var(--apex-mint-deep); }
+
+/* Blog / case study card */
+.ax-card--blog { padding: 0; overflow: hidden; }
+.ax-card--blog .ax-card-image { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.ax-card--blog .ax-card-image img { width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.4s var(--ease-out); }
+.ax-card--blog:hover .ax-card-image img { transform: scale(1.03); }
+.ax-card--blog .ax-card-content { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+.ax-card--blog .ax-card-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-text); }
+.ax-card--blog .ax-card-title { font-size: var(--text-h4); margin: 0; }
+.ax-card--blog .ax-card-excerpt { font-size: 0.9rem; color: var(--ink-warm-2); line-height: 1.6; margin: 0; }
+.ax-card--blog .ax-card-meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-warm-3);
+  letter-spacing: 0.06em; margin-top: auto; padding-top: 1rem; }
+
+/* --- Responsive --- */
+@media (max-width: 60rem) {
+  .ax-card--feature { min-height: 16rem; }
+  .ax-card--metric .ax-card-stat { font-size: 2.25rem; }
+  .ax-card--pricing .ax-card-price { font-size: 2rem; }
+}
+@media (max-width: 40rem) {
+  .ax-card { padding: 1.5rem; }
+  .ax-card--lg { padding: 2rem; border-radius: 16px; }
+  .ax-card--sm { padding: 1rem; }
+}
+
+/* ============================================================
+   MOBILE OVERFLOW & CONTRAST FIXES — sitewide
+   ============================================================ */
+
+/* --- Global overflow prevention --- */
+html, body { overflow-x: hidden; max-width: 100vw; }
+* { min-width: 0; }
+img, video, svg { max-width: 100%; }
+
+/* --- Hero mobile fixes --- */
+.ax-hero-inner, .hero-top-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+.ax-hero h1 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  hyphens: auto;
+}
+.ax-hero-sub {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.ax-hero-actions {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* --- Testimonial overflow fix --- */
+.ax-testi-left {
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+.ax-testi-quote, .ax-testi-body, .ax-testi-attr-name, .ax-testi-attr-role {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* --- FAQ overflow fix --- */
+.faq-answer, .faq-body, [class*="faq"] p, [class*="faq"] span {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* --- Pricing internal layout fix --- */
+.ax-card--pricing ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.ax-card--pricing ul li {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* --- Calculator text fix --- */
+.calc-card, [class*="calc"] {
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* --- Footer contrast fix --- */
+.ax-footer h5 { color: rgba(238,243,236,0.65); }
+.ax-footer ul a { color: rgba(238,243,236,0.85); }
+.ax-footer .blurb { color: rgba(238,243,236,0.7); }
+.ax-footer-bottom { color: rgba(238,243,236,0.6); }
+
+/* --- Mobile specific overrides --- */
+@media (max-width: 60rem) {
+  .ax-hero-inner, .hero-top-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .ax-hero h1 {
+    font-size: clamp(2rem, 7vw, 2.9rem);
+    line-height: 1.12;
+  }
+  .ax-hero-sub {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+  .ax-hero-actions .ax-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* Testimonial stacks cleanly */
+  .ax-testi {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+  .ax-testi-left {
+    padding: 2rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+  }
+  .ax-testi-right {
+    border-radius: 0 0 12px 12px;
+    min-height: 280px;
+  }
+  /* Pricing single column */
+  .plan, .ax-card--pricing {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .ax-hero-inner, .hero-top-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .ax-hero h1 {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+  }
+  /* FAQ answer text */
+  .faq-answer, [class*="faq-ans"] {
+    padding-left: 0;
+    padding-right: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  /* Footer single column — full width */
+  .ax-footer-top {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .ax-footer h5 { color: rgba(238,243,236,0.7); }
+  .ax-footer ul a { color: rgba(238,243,236,0.9); }
+}

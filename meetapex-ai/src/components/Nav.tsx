@@ -63,7 +63,7 @@ export default function Nav({ onBook }: { onBook: () => void }) {
                 <svg className="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>
               </button>
               <div className="drop">
-                <div className="drop-left">
+                <div className="drop-left" style={{ width: '250px', justifyContent: 'flex-start' }}>
                   <a className="drop-item" href="#top" onClick={go('top')}>
                     <div className="dt">About</div>
                     <div className="ds">Who we are and why we build</div>
@@ -77,9 +77,6 @@ export default function Nav({ onBook }: { onBook: () => void }) {
                     <div className="dt">Apply as a talent</div>
                     <div className="ds">Join our AI specialist network</div>
                   </a>
-                </div>
-                <div className="drop-right">
-                  <img src="/assets/apex-ai-logo-black.png" alt="" />
                 </div>
               </div>
             </div>
@@ -103,9 +100,6 @@ export default function Nav({ onBook }: { onBook: () => void }) {
                     <div className="dt">AI Consulting &amp; Strategy</div>
                     <div className="ds">Roadmaps that pay off fast</div>
                   </a>
-                </div>
-                <div className="drop-right">
-                  <img src="/assets/apex-ai-logo-black.png" alt="" />
                 </div>
               </div>
             </div>

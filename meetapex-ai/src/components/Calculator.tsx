@@ -36,16 +36,16 @@ export default function Calculator({ onBook }: { onBook: () => void }) {
   );
 
   return (
-    <section className="calc" id="calculator" style={{ padding: '103px 0px 104px', borderWidth: '0px 0px 1px', borderStyle: 'solid', borderColor: 'rgba(27, 28, 24, 0.1)' }}>
-      <div className="wrap">
+    <section className="calc ax-section" id="calculator" style={{ borderWidth: '0px 0px 1px', borderStyle: 'solid', borderColor: 'rgba(27, 28, 24, 0.1)' }}>
+      <div className="ax-container">
         <div className="sec-head center rv">
           <span className="eyebrow-center">
-            <Spark size={14} color="#10453F" />Savings calculator
+            <Spark size={14} color="#10453F" />ROI calculator
           </span>
           <h2 className="h2">See how much your business could <span className="hl-select">save</span> with AI</h2>
         </div>
-        <div className="calc-card rv" data-d="1" style={{ borderColor: 'rgba(27, 28, 24, 0.2)' }}>
-          <div className="calc-inputs" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
+        <div className="calc-card rv ax-card ax-card--bordered" data-d="1" style={{ padding: '0px' }}>
+          <div className="calc-inputs" style={{ padding: '48px 30px', backgroundColor: 'rgb(248, 248, 248)' }}>
             {field('Team members doing repetitive work', team, '', 1, 50, 1, setTeam)}
             {field('Manual hours per person, per week', hours, ' hrs', 1, 40, 1, setHours)}
             {field('Average hourly cost', AUD(rate), '', 25, 150, 5, setRate)}

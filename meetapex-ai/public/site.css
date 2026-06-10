@@ -46,6 +46,11 @@
   .hero-top-container .hero-actions { justify-content: flex-start; }
   .hero-br { display: none; }
 }
+@media (max-width: 64rem) {
+  .hero-rating { flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+  .hero-rating .rtxt { text-align: center; }
+}
+}
 
 /* ---- fixed navbar override ---- */
 .nav-wrap { position: fixed !important; top: 0; left: 0; width: 100%; z-index: 100; }
@@ -265,18 +270,7 @@ section { position: relative; }
   .svc.feature { margin: 0; }
 }
 
-/* ============================================================
-   TESTIMONIAL — DS canonical (comp-testimonial.html)
-   ============================================================ */
-.ax-testi { background: #10453F; padding: 80px 57px; display: flex; justify-content: center; }
-.ax-testi-inner { display: flex; flex-direction: row; align-items: stretch; justify-content: space-between; width: 1280px; max-width: 100%; gap: 40px; }
-.ax-testi-left { background: #E3F9E2; border-radius: 24px; padding: 48px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-.ax-testi-right { width: 520px; min-height: 600px; border-radius: 24px; flex-shrink: 0; overflow: hidden; background: #1F6B5E; display: flex; align-items: center; justify-content: center; }
-@media (max-width: 64rem) {
-  .ax-testi { padding: 3rem 1.5rem; }
-  .ax-testi-inner { flex-direction: column; }
-  .ax-testi-right { width: 100%; min-height: 320px; }
-}
+/* .ax-testi* rules removed — canonical definitions now live in kit.css */
 
 /* ============================================================
    WHY FOUNDERS — icon-card 2×2 grid
@@ -395,7 +389,7 @@ section { position: relative; }
 .plan .pdesc { font-size: 0.9rem; color: var(--ink-warm-2); line-height: 1.5; margin: 0.75rem 0 0; min-height: 2.8rem; }
 .plan .pamt { margin: 1.25rem 0; border-top: 1px solid var(--grid-line); padding-top: 1.25rem; }
 .plan .pamt .pre { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-warm-3); display: block; margin-bottom: 0.3rem; min-height: 0.9rem; }
-.plan .pamt .amt { font-family: var(--font-display); font-weight: 500; font-size: 2rem; letter-spacing: -0.025em; color: var(--ink-warm); line-height: 1; }
+.plan .pamt .amt { font-family: var(--font-display); font-weight: 500; font-size: 2.5rem; letter-spacing: -0.025em; color: var(--ink-warm); line-height: 1; }
 .plan .pamt .per { font-size: 0.88rem; color: var(--ink-warm-3); }
 .plan .pnote { font-size: 0.78rem; color: var(--ink-warm-3); margin: 0.45rem 0 0; line-height: 1.4; }
 .plan .pfeat { list-style: none; padding: 1.25rem 0 0; margin: 1.25rem 0 0; border-top: 1px solid var(--grid-line); display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
@@ -470,8 +464,14 @@ section { position: relative; }
 
 /* Dark variant of hl-select handled automatically by .section-dark .hl-select in colors_and_type.css */
 
-/* ============================================================
-   REVEAL motion
+/* .why-bento-grid removed — replaced by kit.css .bento-grid / .bento-row / .bento-card */
+
+/* Dropdowns — narrower now that drop-right panel is removed */
+.drop { min-width: 18rem; }
+
+/* Fix: overflow-x: hidden on body breaks position: sticky on nav.
+   clip achieves the same visual result without creating a scroll container. */
+html, body { overflow-x: clip; }
    ============================================================ */
 :root { --rv-shift: 18px; --rv-dur: 680ms; --rv-stag: 80ms; --nav-h: 72px; }
 [data-motion="calm"] { --rv-shift: 10px; --rv-dur: 540ms; --rv-stag: 50ms; }

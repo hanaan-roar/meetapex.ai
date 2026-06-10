@@ -17,7 +17,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
   usePlayfair();
 
   return (
-    <header className="hero ax-hero" id="top" style={{ marginTop: '-74px', minHeight: 'calc(100vh + 74px)' }}>
+    <header className="hero ax-hero" id="top" style={{ marginTop: '-74px', minHeight: 'calc(100vh + 74px)', padding: '0px 24px' }}>
       <img
         src="/assets/apex-hero_bg.jpg"
         alt=""
@@ -25,7 +25,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', zIndex: 0, pointerEvents: 'none' }}
       />
 
-      <div className="hero-top-container ax-hero-inner">
+      <div className="hero-top-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', zIndex: 10, padding: '100px 0px 40px' }}>
         <div className="hero-rating" style={{ margin: '0px 0px 24px' }}>
           <Stars size={15} color="#FFD580" />
           <span className="rtxt" style={{ fontSize: 'clamp(12px, 0.9vw, 14px)', color: 'rgb(95, 95, 95)' }}>
@@ -41,7 +41,7 @@ export function Hero({ onBook }: { onBook: () => void }) {
         </h1>
 
         <p className="hero-sub" style={{ maxWidth: '52rem', margin: '24px auto 0px', fontSize: 'clamp(16px, 1.4vw, 20px)' }}>
-          Apex AI helps founders and fast-growing businesses with AI automation services,<br className="hero-br" /> custom AI solutions and AI strategy, from A$60 per hour.
+          Apex AI helps founders and fast-growing businesses with AI automation services, custom AI solutions and AI strategy, from A$60 per hour.
         </p>
 
         <div className="hero-actions" style={{ margin: '40px 0px 49px' }}>
