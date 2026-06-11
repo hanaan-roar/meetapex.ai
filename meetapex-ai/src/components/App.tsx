@@ -39,8 +39,8 @@ export default function App() {
         <Trust />
         <Services />
         <Testimonial />
-        <StatsBento />
         <WhyFounders />
+        <StatsBento />
         <Calculator onBook={open} />
         <Deploy onBook={open} />
         <Pricing onBook={open} />

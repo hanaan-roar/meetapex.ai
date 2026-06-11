@@ -50,6 +50,10 @@
   .hero-rating { flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
   .hero-rating .rtxt { text-align: center; }
 }
+@media (max-width: 40rem) {
+  .hero-rating { align-items: flex-start; text-align: left; }
+  .hero-rating .rtxt { text-align: left; }
+}
 }
 
 /* ---- fixed navbar override ---- */
@@ -466,6 +470,11 @@ section { position: relative; }
 
 /* .why-bento-grid removed — replaced by kit.css .bento-grid / .bento-row / .bento-card */
 
+/* Nav mobile — burger must snap to row 1 col 2, not fall into row 2 */
+@media (max-width: 60rem) {
+  .nav-burger { grid-column: 2; grid-row: 1; }
+}
+
 /* Dropdowns — narrower now that drop-right panel is removed */
 .drop { min-width: 18rem; }
 
@@ -483,4 +492,92 @@ html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-glow, .hero-scroll { animation: none !important; }
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+
+.contact-hero-photo {
+  background: url('/assets/contact-bg.avif') center bottom / cover no-repeat;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+.contact-hero-photo .ax-container { width: 100%; }
+
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contact-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-warm);
+  line-height: 1.5;
+}
+.contact-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: var(--pine);
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.contact-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2.25rem;
+  padding: 0.6rem 1.15rem;
+  background: #fff;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(27,28,24,0.5);
+}
+
+.contact-disclaimer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-warm-3);
+  text-align: center;
+  margin: 0.85rem 0 0;
+  line-height: 1.6;
+}
+
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* More visible input stroke on the contact form */
+.contact-hero-photo .ax-input {
+  border-color: rgba(27,28,24,0.3);
+}
+
+@media (max-width: 60rem) {
+  .contact-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-hero-photo { min-height: 0; }
+}
+@media (max-width: 30rem) {
+  .cf-row { grid-template-columns: 1fr; }
 }

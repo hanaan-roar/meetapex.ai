@@ -1,0 +1,25 @@
+---
+import ContactPage from '../components/ContactApp';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/apex-ai-logo-black.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Apex AI | Book a Free Discovery Call</title>
+    <meta name="description" content="Book a free discovery call with Apex AI and find out exactly where AI can transform your business. Certified AI experts from A$60 per hour." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link rel="stylesheet" href="/colors_and_type.css" />
+    <link rel="stylesheet" href="/kit.css" />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <ContactPage client:load />
+  </body>
+</html>
