@@ -55,7 +55,7 @@ export default function StatsBento() {
         </div>
         <div className="stats-editorial">
           {STATS.map((s, i) => (
-            <div className="stat-col rv" data-d={i + 1} key={i} style={{ borderStyle: 'solid', borderColor: 'rgba(27, 28, 24, 0.08)', borderWidth: '0px', padding: '32px 48px 48px 0px' }}>
+            <div className="stat-col rv" data-d={i + 1} key={i} style={{ borderStyle: 'solid', borderColor: 'rgba(27, 28, 24, 0.08)', borderWidth: '0px', padding: '32px 48px 48px 32px' }}>
               <div className="stat-number">
                 {s.pre && <span className="stat-pre">{s.pre}</span>}
                 <span className="stat-big"><CountUpNum target={s.target} active={active} /></span>

@@ -59,7 +59,7 @@ export function Stars({ size = 14, color = 'var(--accent-action)' }: { size?: nu
     <span className="stars" style={{ color }}>
       {[0, 1, 2, 3, 4].map((i) => (
         <svg key={i} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '18px', height: '18px' }}>
-          <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47-4.7-4.58 6.5-.95L12 2.5Z" style={{ fill: 'rgb(31, 122, 72)', strokeWidth: '1px' }} />
+          <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 17.4l-5.8 3.07 1.1-6.47-4.7-4.58 6.5-.95L12 2.5Z" style={{ strokeWidth: '1px', fill: 'rgb(16, 69, 63)' }} />
         </svg>
       ))}
     </span>
@@ -83,4 +83,19 @@ export function Button({ children, variant = 'primary', size = 'md', iconRight, 
       {iconRight && <span className="arr"><Icon name={iconRight} size={sz} stroke={1.75} /></span>}
     </button>
   );
+}
+
+// ---- Eyebrow ----
+export function Eyebrow({ children, icon }: { children: React.ReactNode; icon?: string }) {
+  return (
+    <span className="ax-eyebrow">
+      {icon && <Icon name={icon} size={13} stroke={1.75} />}
+      {children}
+    </span>
+  );
+}
+
+// ---- Container ----
+export function Container({ children, className = '', style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
+  return <div className={`ax-container ${className}`} style={style}>{children}</div>;
 }

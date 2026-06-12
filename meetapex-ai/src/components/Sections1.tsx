@@ -16,7 +16,7 @@ export function Services() {
         </div>
 
         <div className="svc-grid" style={{ padding: '0px' }}>
-          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px 1px 0px 0px', borderRadius: '0px' }}>
+          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px', borderRadius: '0px' }}>
             <div className="visual v1">
               <img src="/assets/AI Automation.avif" alt="AI Automation" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
             </div>
@@ -30,7 +30,7 @@ export function Services() {
             </a>
           </div>
 
-          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px 0px 0px 1px', borderRadius: '0px' }}>
+          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px', borderRadius: '0px' }}>
             <div className="visual v2">
               <img src="/assets/Custom AI Solutions.avif" alt="Custom AI Solutions" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
             </div>
@@ -44,7 +44,7 @@ export function Services() {
             </a>
           </div>
 
-          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px', borderRadius: '0px' }}>
+          <div className="svc ax-card ax-card--blog" style={{ padding: '0px', borderWidth: '0px 0px 1px', borderRadius: '0px' }}>
             <div className="visual v3">
               <img src="/assets/AI Consulting & Strategy.avif" alt="AI Consulting & Strategy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
             </div>
@@ -63,14 +63,14 @@ export function Services() {
   );
 }
 
-export function Testimonial({ variant }: { variant?: string } = {}) {
+export function Testimonial({ variant }: { variant?: string }) {
   if (variant === 'New testimonial') {
     return (
-      <section className="ax-section nt-section">
+      <section className="ax-section nt-section" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
         <div className="ax-container">
           <div className="nt-grid">
             <div className="ax-card ax-card--cream ax-card--shadow nt-portrait">
-              <img src="/assets/nici-sweaney.png" alt="Dr Nici Sweaney" />
+              <img src="/assets/dr.Nici.avif" alt="Dr Nici Sweaney" style={{ objectFit: 'cover' }} />
               <div className="nt-label">
                 <p className="nt-name">Dr Nici Sweaney</p>
                 <p className="nt-role">Chief Executive Officer at Ai Her Way</p>
@@ -121,13 +121,13 @@ export function Testimonial({ variant }: { variant?: string } = {}) {
 }
 
 const WHY_CARDS = [
-  { num: '01.', title: 'Certified AI expertise', desc: 'Certified experts ready to build and deploy for businesses across Sydney, Melbourne and Australia, from A$60 per hour.', img: '/assets/Certified expertise.avif' },
-  { num: '02.', title: 'Full stack capability', desc: 'Deep expertise across every AI model, automation tool and modern tech stack your business runs on.', img: '/assets/Full-stack expertise.avif' },
-  { num: '03.', title: 'End-to-end ownership', desc: 'From strategy and scoping through to build, deployment and beyond. We handle it all.', img: '/assets/End-to-end ownership.avif' },
-  { num: '04.', title: 'Continuous expansion', desc: 'As your business grows, new AI capabilities keep rolling out. Your AI stack scales with you.', img: '/assets/Continuous expansion.avif' },
+  { num: '01.', title: 'Certified AI expertise', desc: 'Certified experts ready to build and deploy for businesses across Sydney, Melbourne and Australia, from A$60 per hour.', img: '/assets/Certified AI expertise.avif' },
+  { num: '02.', title: 'Full stack capability', desc: 'Deep expertise across every AI model, automation tool and modern tech stack your business runs on.', img: '/assets/Full stack capability.avif' },
+  { num: '03.', title: 'End-to-end ownership', desc: 'From strategy and scoping through to build, deployment and beyond. We handle it all.', img: '/assets/End-to-end ownership-3a382aca.avif' },
+  { num: '04.', title: 'Continuous expansion', desc: 'As your business grows, new AI capabilities keep rolling out. Your AI stack scales with you.', img: '/assets/Continuous expansion-8fceea43.avif' },
 ];
 
-export function WhyFounders() {
+export function WhyFounders({ variant = 'Bento' }: { variant?: string }) {
   useEffect(() => {
     if (document.getElementById('why-playfair-import')) return;
     const s = document.createElement('style');

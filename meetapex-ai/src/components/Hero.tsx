@@ -58,6 +58,17 @@ export function Hero({ onBook }: { onBook: () => void }) {
   );
 }
 
+export function ClaudePartnerBadge({ style }: { style?: React.CSSProperties }) {
+  return (
+    <span className="hero-partner" style={style}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+        <path d={CLAUDE_PATH} fill="#D97758" />
+      </svg>
+      Certified Claude partner
+    </span>
+  );
+}
+
 export function Trust() {
   const logos = [
     { src: '/assets/logo-farsiight.png', alt: 'Farsiight' },
