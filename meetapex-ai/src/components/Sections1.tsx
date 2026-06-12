@@ -63,7 +63,34 @@ export function Services() {
   );
 }
 
-export function Testimonial() {
+export function Testimonial({ variant }: { variant?: string } = {}) {
+  if (variant === 'New testimonial') {
+    return (
+      <section className="ax-section nt-section">
+        <div className="ax-container">
+          <div className="nt-grid">
+            <div className="ax-card ax-card--cream ax-card--shadow nt-portrait">
+              <img src="/assets/nici-sweaney.png" alt="Dr Nici Sweaney" />
+              <div className="nt-label">
+                <p className="nt-name">Dr Nici Sweaney</p>
+                <p className="nt-role">Chief Executive Officer at Ai Her Way</p>
+              </div>
+            </div>
+            <div className="ax-card ax-card--shadow nt-quote-card nt-quote-card--pine">
+              <div className="ax-testi-quote-mark">&ldquo;</div>
+              <p className="ax-testi-quote nt-quote-serif">
+                Apex AI helped us deploy a strong automation specialist across both internal operations and client work.
+              </p>
+              <p className="ax-testi-body">
+                They hit the ground running, deliver excellent client outcomes and consistently solve complex automation challenges. We have received great feedback across our client projects and learning programs. The entire process was seamless and highly responsive throughout.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="ax-section" style={{ background: 'rgb(255, 255, 255)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>

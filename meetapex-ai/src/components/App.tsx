@@ -38,7 +38,7 @@ export default function App() {
         <Hero onBook={open} />
         <Trust />
         <Services />
-        <Testimonial />
+        <Testimonial variant="New testimonial" />
         <WhyFounders />
         <StatsBento />
         <Calculator onBook={open} />

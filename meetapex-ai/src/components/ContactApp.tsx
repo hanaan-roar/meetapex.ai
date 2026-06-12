@@ -151,7 +151,7 @@ export default function ContactPage() {
       <Nav onBook={scrollToForm} />
       <ContactHeroForm />
       <Trust />
-      <Testimonial />
+      <Testimonial variant="New testimonial" />
       <FAQ />
       <EndZone onBook={scrollToForm} />
     </>
